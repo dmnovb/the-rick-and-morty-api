@@ -46,8 +46,6 @@ body {
   border-radius: 15px;
   height: 200px;
   width: 600px;
-  margin-left: 6rem;
-
 }
 
 .section {
@@ -65,7 +63,7 @@ body {
   .chars {
     display: grid;
     grid-template-columns: auto auto;
-    margin-left: 13rem;
+
   }
 }
 
