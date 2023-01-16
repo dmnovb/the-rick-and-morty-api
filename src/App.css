@@ -1,5 +1,6 @@
 body {
   background: #272b33;
+  overflow: hidden;
 }
 
 .logo {
@@ -8,7 +9,7 @@ body {
   saturate(256%) 
   hue-rotate(246deg) 
   brightness(111%) 
-  contrast(100%);;
+  contrast(100%);
 }
 
 .container {
@@ -32,20 +33,21 @@ body {
 
 .chars {
   display: grid;
+  flex-direction: column;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  margin: 0;
-  
 }
 
-img {
-  border-radius: 15px 0px 0px 15px;
-}
+
 
 .card {
   display: flex;
   background: #3c3e44;
   border-radius: 15px;
+  height: 200px;
+  width: 600px;
+  margin-left: 6rem;
+
 }
 
 .section {
@@ -54,32 +56,25 @@ img {
   flex: 1 1 0%;
 }
 
-
-/* .card {
-  color: white;
+.chars * img {
+  border-radius: 15px 0px;
+  height: 200px;
 }
 
-.characters {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  padding: 1rem;
-  gap: 1rem;
-  
-}
-
-.char-info {
-  display: flex;
-  border-radius: 35px;
-  background: #3c3e44;
-}
-
-.char-info > img {
-  border-radius: 15px;
-} */
-
-@media (min-width: 300px) {
+@media (max-width:1850px) {
   .chars {
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns: auto auto;
+    margin-left: 13rem;
+  }
+}
+
+@media (max-width:1450px) {
+  .chars {
+    margin: auto 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
 }
