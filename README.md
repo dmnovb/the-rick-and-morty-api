@@ -11,7 +11,7 @@
 ![test](https://github.com/dmnovb/images/blob/main/smallerres.png)
 
 
-`phone resolution`
+`>600px`
 
 ![test](https://github.com/dmnovb/images/blob/main/phoneres.png)
 
