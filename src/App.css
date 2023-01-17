@@ -43,6 +43,7 @@ body {
 
 
 .chars {
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2.5rem;
   padding: 2rem;
@@ -120,7 +121,7 @@ a:hover {
   
 }
 
-@media (max-width:1900px) {
+@media (max-width: 2000px) {
   .chars {
     display: grid;
     grid-template-columns: auto auto;
@@ -128,7 +129,7 @@ a:hover {
   }
 }
 
-@media (max-width:1300px) {
+@media (max-width: 1300px) {
   .chars {
     display: flex;
     justify-content: center;
@@ -137,7 +138,7 @@ a:hover {
   }
 }
 
-@media (max-width:600px) {
+@media (max-width: 600px) {
   .card {
     display: flex;
     flex-direction: column;
@@ -149,6 +150,7 @@ a:hover {
 
   .info {
     font-size: 10vw;
+
   }
 
   .section {
