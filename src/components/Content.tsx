@@ -70,7 +70,10 @@ const Content = () => {
                     <div>
                         <div className='section'>
                             <a href='#' className='char-name'>{character.name}</a>
-                            <span>{character.status} - {character.species}</span>
+                            <span>
+                              <span className='status-icon'></span>
+                              {character.status} - {character.species}
+                            </span>
                         </div>
                         <div className='section'>
                             <span className='last-known'>Last known location:</span>

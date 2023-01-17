@@ -77,6 +77,16 @@ body {
   color: #9e9e9e;
 }
 
+.status-icon {
+  height: .5rem;
+  width: .5rem;
+  margin-right: 0.35rem;
+  margin-bottom: 0.15rem;
+  background-color: rgb(85, 204, 68);
+  border-radius: 50%;
+  display: inline-block;
+}
+
 .char-name {
   font-size: 25px;
   font-weight: 800;
@@ -97,9 +107,9 @@ a:hover {
 }
 
 .card:hover {
-  box-shadow: 5px 2px 2px #ff9800;
+  box-shadow: 0px 0px 5px #ff9800;
   transition: ease-out 0.2s;
-  transform: translateY(-0.550rem);
+  transform: translateY(-0.350rem);
   
 }
 
