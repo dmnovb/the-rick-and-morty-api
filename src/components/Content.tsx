@@ -69,16 +69,16 @@ const Content = () => {
                     </div>
                     <div>
                         <div className='section'>
-                            <a className='char-name'>{character.name}</a>
+                            <a href='#' className='char-name'>{character.name}</a>
                             <span>{character.status} - {character.species}</span>
                         </div>
                         <div className='section'>
                             <span className='last-known'>Last known location:</span>
-                            <span>{character.location.name}</span>
+                            <a href='#' >{character.location.name}</a>
                         </div>
                         <div className='section'>
                             <span className='first-seen'>First seen in:</span>
-                            <span>Pilot</span>
+                            <a href='#'>Pilot</a>
                         </div>
                     </div>
                 </article>

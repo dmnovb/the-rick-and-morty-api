@@ -55,6 +55,7 @@ body {
   height: 200px;
   width: 600px;
   cursor: pointer;
+  transition: ease-out 0.2s;
 }
 
 .section {
@@ -81,8 +82,24 @@ body {
   font-weight: 800;
 }
 
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+  text-decoration: none;
+  
+}
+
+a:hover {
+  color:#ff9800;
+}
+
 .card:hover {
   box-shadow: 5px 2px 2px #ff9800;
+  transition: ease-out 0.2s;
+  transform: translateY(-0.550rem);
   
 }
 
