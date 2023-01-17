@@ -147,10 +147,14 @@ a:hover {
     text-align: center;
   }
 
+  .info {
+    font-size: 10vw;
+  }
+
   .section {
     display: flex;
     margin-right: 1rem;
-    padding: 0.4rem;
+    padding: 0.5rem 0rem 0.5rem 0rem;
   }
 
   .chars * img {
