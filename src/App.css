@@ -7,7 +7,7 @@
 
 body {
   background: #272b33;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .logo {
@@ -122,6 +122,15 @@ a:hover {
 }
 
 @media (max-width:1450px) {
+  .chars {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+@media (max-width:300px) {
   .chars {
     display: flex;
     justify-content: center;
