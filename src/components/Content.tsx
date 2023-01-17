@@ -31,9 +31,10 @@ const Content = () => {
       }
 
     const [characters, setCharacters] = useState<ResultObject>()
-    const [ep, setEp] = useState([])
+    // const [ep, setEp] = useState([])
+
     const url = 'https://rickandmortyapi.com/api/character'
-    const epUrl = 'https://rickandmortyapi.com/api/episode'
+
 
 
     const getCharacters = async () => {
@@ -53,16 +54,12 @@ const Content = () => {
     useEffect(() => {
       getCharacters()
     }, [])
-  
-
-    // console.log(characters?.results)
-    // console.log(ep.name)
 
     return (
     <div>
         <section>
             <div className='chars'>
-            {characters?.results.splice(0, 6).map((character, i) => (
+            {characters?.results.splice(0,6).map((character, i) => (
                 <article className='card' key={i}>                    
                     <div>
                         <img src={character.image} alt="" />
