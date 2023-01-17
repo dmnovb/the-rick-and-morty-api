@@ -52,11 +52,24 @@ body {
   display: flex;
   flex-direction: column;
   flex: 1 1 0%;
+  justify-content: space-around;
+  margin-left: 1rem;
+  margin-top: 0.650rem;
 }
 
 .chars * img {
-  border-radius: 15px 0px;
+  border-radius: 15px 0px 0px 15px;
   height: 200px;
+}
+
+.last-known,
+.first-seen {
+  color: #9e9e9e;
+}
+
+.char-name {
+  font-size: 25px;
+  font-weight: 800;
 }
 
 @media (max-width:1850px) {
@@ -69,7 +82,6 @@ body {
 
 @media (max-width:1450px) {
   .chars {
-    margin: auto 0;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -55,15 +55,15 @@ const Content = () => {
                     </div>
                     <div>
                         <div className='section'>
-                            <span>{character.name}</span>
+                            <span className='char-name'>{character.name}</span>
                             <span>{character.status} - {character.species}</span>
                         </div>
                         <div className='section'>
-                            <span>Last known location:</span>
+                            <span className='last-known'>Last known location:</span>
                             <span>{character.location.name}</span>
                         </div>
                         <div className='section'>
-                            <span>First seen in:</span>
+                            <span className='first-seen'>First seen in:</span>
                             <span>Pilot</span>
                         </div>
                     </div>
