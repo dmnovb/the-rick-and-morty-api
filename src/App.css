@@ -118,7 +118,18 @@ body {
 .char-name {
   font-size: 25px;
   font-weight: 900;
+}
 
+.search-bar {
+  font-family: 'Poppins';
+  text-align: center;
+  font-size: 18px;
+  border-radius: 12px;
+  border: solid 2px #272b33;
+}
+
+input {
+  padding: 0.350rem;
 }
 
 a {

@@ -15,8 +15,8 @@ const Search = (props:any) => {
 
   return (
     <div>
-        <form onSubmit={getKeyword}>
-            <input onChange={(e) => setKeyword(e.target.value)} type="text" placeholder="Search character..."/>
+        <form  onSubmit={getKeyword}>
+            <input className='search-bar' onChange={(e) => setKeyword(e.target.value)} type="text" placeholder="Search character..."/>
         </form> 
     </div>
   )
