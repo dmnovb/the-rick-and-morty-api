@@ -11,7 +11,7 @@ function App() {
     <div className="container">
       <Header/>
       <Info/>
-      <Search/>
+      {/* <Search/> */}
       <Content/>
     </div>
   )

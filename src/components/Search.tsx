@@ -1,18 +1,17 @@
 import React, {useEffect, useState } from 'react'
 
-const Search = () => {
+const Search = (props:any) => {
 
     const [keyword, setKeyword] = useState('')
-    const [a, setA] = useState([])
+
     var char_url = `https://rickandmortyapi.com/api/character/?name=${keyword}`
 
     const getKeyword = async (e:any) => {
         e.preventDefault();
         const characterQuery = await fetch(char_url).then(res => res.json())
-        setA(characterQuery)
+        props.onDataFromChild(characterQuery)
     }
 
-    console.log(a)
 
   return (
     <div>

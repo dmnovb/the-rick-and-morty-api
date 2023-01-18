@@ -80,22 +80,15 @@ const Content = () => {
       getCharacters()
     }, [])
 
-    // const handleNextPage = async () => {
-    //   setPage(page + 1)
-    //   const allCharacters = await fetch(url).then(res => res.json())
-    //   setCharacters(allCharacters)
-    // }
+    const getStateFromChild = (data:any) => {
+      setCharacters(data)
+    }
 
-    // const handlePreviousPage = async () => {
-    //   setPage(page - 1)
-    //   const allCharacters = await fetch(url).then(res => res.json())
-    //   setCharacters(allCharacters)
-    // }
-
-
-    // console.log(characters)
     return (
-    <div>
+      <div>
+        {characters?.results === undefined ? <div>No results found</div> : 
+        <div  className='container'>
+        <Search onDataFromChild={getStateFromChild}/>
         <section>
             <div className='chars'>
             {characters?.results.splice(0,9).map((character, i) => (
@@ -124,18 +117,10 @@ const Content = () => {
             ))}              
             </div>
         </section>
-        {/* <div className='container-buttons'>
-          <div>
-          <button onClick={() => handlePreviousPage()} className='prev-button'>
-          <FontAwesomeIcon className='arrow-left' icon={faArrowLeft}></FontAwesomeIcon>Prev</button>
-          </div>
-          <div>
-          <button onClick={() => handleNextPage()} className='next-button'>Next
-          <FontAwesomeIcon className='arrow-right' icon={faArrowRight}></FontAwesomeIcon>
-          </button>
-          </div>
-        </div> */}
-    </div>
+        </div>
+        }
+      
+        </div>
   )
 }
 
