@@ -124,12 +124,15 @@ body {
   font-family: 'Poppins';
   text-align: center;
   font-size: 18px;
-  border-radius: 12px;
+  border-radius: 18px;
+  color: #272b33;
   border: solid 2px #272b33;
 }
 
 input {
-  padding: 0.350rem;
+  padding-top: 0.650rem;
+  padding-bottom: 0.650rem;
+  width: 100%;
 }
 
 a {
