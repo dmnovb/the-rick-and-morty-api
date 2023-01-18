@@ -1,8 +1,10 @@
 import {useState, useEffect} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faArrowRight, faArrowLeft} from '@fortawesome/free-solid-svg-icons'
+import Search from './Search'
 
 const Content = () => {
+    
     type ResultObject = {
         info: {
           count: number,
@@ -78,27 +80,28 @@ const Content = () => {
       getCharacters()
     }, [])
 
-    const handleNextPage = async () => {
-      setPage(page + 1)
-      const allCharacters = await fetch(url).then(res => res.json())
-      setCharacters(allCharacters)
-    }
+    // const handleNextPage = async () => {
+    //   setPage(page + 1)
+    //   const allCharacters = await fetch(url).then(res => res.json())
+    //   setCharacters(allCharacters)
+    // }
 
-    const handlePreviousPage = async () => {
-      setPage(page - 1)
-      const allCharacters = await fetch(url).then(res => res.json())
-      setCharacters(allCharacters)
-    }
+    // const handlePreviousPage = async () => {
+    //   setPage(page - 1)
+    //   const allCharacters = await fetch(url).then(res => res.json())
+    //   setCharacters(allCharacters)
+    // }
 
-    console.log(characters)
+
+    // console.log(characters)
     return (
     <div>
         <section>
             <div className='chars'>
-            {characters?.results.splice(0,20).map((character, i) => (
+            {characters?.results.splice(0,9).map((character, i) => (
                 <article className='card' key={i}>                    
                     <div>
-                        <img src={character.image} alt="" />
+                        <img src={character.image}/>
                     </div>
                     <div>
                         <div className='section'>
@@ -121,7 +124,7 @@ const Content = () => {
             ))}              
             </div>
         </section>
-        <div className='container-buttons'>
+        {/* <div className='container-buttons'>
           <div>
           <button onClick={() => handlePreviousPage()} className='prev-button'>
           <FontAwesomeIcon className='arrow-left' icon={faArrowLeft}></FontAwesomeIcon>Prev</button>
@@ -131,7 +134,7 @@ const Content = () => {
           <FontAwesomeIcon className='arrow-right' icon={faArrowRight}></FontAwesomeIcon>
           </button>
           </div>
-        </div>
+        </div> */}
     </div>
   )
 }

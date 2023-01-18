@@ -117,7 +117,8 @@ body {
 
 .char-name {
   font-size: 25px;
-  font-weight: 800;
+  font-weight: 900;
+
 }
 
 a {
@@ -165,7 +166,7 @@ a:hover {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 630px) {
   .card {
     display: flex;
     flex-direction: column;
