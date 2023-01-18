@@ -1,4 +1,6 @@
 import {useState, useEffect} from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faArrowRight, faArrowLeft} from '@fortawesome/free-solid-svg-icons'
 
 const Content = () => {
     type ResultObject = {
@@ -30,10 +32,38 @@ const Content = () => {
         }]
       }
 
-    const [characters, setCharacters] = useState<ResultObject>()
-    // const [ep, setEp] = useState([])
+    const alive_status_icon = {
+      height: '.55rem',
+      width: '.55rem',
+      marginRight: '0.35rem',
+      marginBottom: '0.12rem',
+      backgroundColor: '#55cc44',
+      borderRadius: '50%',
+      display: 'inline-block'
+    }
+    const deceased_status_icon = {
+      height: '.55rem',
+      width: '.55rem',
+      marginRight: '0.35rem',
+      marginBottom: '0.12rem',
+      backgroundColor: '#d63d2e',
+      borderRadius: '50%',
+      display: 'inline-block'
+    }
+    const unknown_status_icon = {
+      height: '.55rem',
+      width: '.55rem',
+      marginRight: '0.35rem',
+      marginBottom: '0.12rem',
+      backgroundColor: '#9e9e9e',
+      borderRadius: '50%',
+      display: 'inline-block'
+    }
 
-    const url = 'https://rickandmortyapi.com/api/character'
+    const [characters, setCharacters] = useState<ResultObject>()
+    const [page, setPage] = useState(1)
+
+    let url = `https://rickandmortyapi.com/api/character?page=${page}`
 
 
 
@@ -42,24 +72,30 @@ const Content = () => {
       const allCharacters = await fetch(url).then(res => res.json())
       setCharacters(allCharacters)
 
-      // for(let i =0; i < allCharacters.info.count; i++) {
-      //   const episodeUrl = allCharacters.results[i].episode[0] 
-      //   if(allCharacters.results[i].episode[0] != undefined) {
-      //     const firstEp = await fetch(episodeUrl).then(res => res.json())
-      //     setEp(firstEp)
-      //   }
-      // }
        
     }
     useEffect(() => {
       getCharacters()
     }, [])
 
+    const handleNextPage = async () => {
+      setPage(page + 1)
+      const allCharacters = await fetch(url).then(res => res.json())
+      setCharacters(allCharacters)
+    }
+
+    const handlePreviousPage = async () => {
+      setPage(page - 1)
+      const allCharacters = await fetch(url).then(res => res.json())
+      setCharacters(allCharacters)
+    }
+
+    console.log(characters)
     return (
     <div>
         <section>
             <div className='chars'>
-            {characters?.results.splice(0,6).map((character, i) => (
+            {characters?.results.splice(0,20).map((character, i) => (
                 <article className='card' key={i}>                    
                     <div>
                         <img src={character.image} alt="" />
@@ -68,7 +104,7 @@ const Content = () => {
                         <div className='section'>
                             <a href='#' className='char-name'>{character.name}</a>
                             <span>
-                              <span className='status-icon'></span>
+                              <span style={character.status === 'Alive' ?  alive_status_icon : character.status === 'unknown' ? unknown_status_icon : deceased_status_icon} className='status-icon'></span>
                               {character.status} - {character.species}
                             </span>
                         </div>
@@ -85,6 +121,17 @@ const Content = () => {
             ))}              
             </div>
         </section>
+        <div className='container-buttons'>
+          <div>
+          <button onClick={() => handlePreviousPage()} className='prev-button'>
+          <FontAwesomeIcon className='arrow-left' icon={faArrowLeft}></FontAwesomeIcon>Prev</button>
+          </div>
+          <div>
+          <button onClick={() => handleNextPage()} className='next-button'>Next
+          <FontAwesomeIcon className='arrow-right' icon={faArrowRight}></FontAwesomeIcon>
+          </button>
+          </div>
+        </div>
     </div>
   )
 }
