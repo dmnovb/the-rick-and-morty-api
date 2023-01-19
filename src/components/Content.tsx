@@ -84,6 +84,7 @@ const Content = () => {
       setCharacters(data)
     }
 
+    console.log(characters)
     return (
       <div>
         {characters?.results === undefined ? <div>No results found</div> : 
