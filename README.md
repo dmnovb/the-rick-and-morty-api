@@ -1,4 +1,5 @@
 # the-rick-and-morty-api
+Deployed here: https://the-rick-and-morty-api-sepia.vercel.app/
 
 Inspired by https://rickandmortyapi.com/, the code uses their API to build the web-app, I've added the extra functionality of search and I changed the design a little.
 
