@@ -1,4 +1,7 @@
 import React, {useEffect, useState } from 'react'
+import {CSSTransition} from 'react-transition-group'
+import Dropdown from './Dropdown'
+
 
 const Search = (props:any) => {
 
@@ -15,9 +18,11 @@ const Search = (props:any) => {
         props.onDataFromChild(characterQuery)
     }
 
-    const handleSelect = (e:any) => {
+    const setFilter = (data:any) => {
 
     }
+
+
 
   return (
     <div>
@@ -25,8 +30,9 @@ const Search = (props:any) => {
         <form  onSubmit={getName}>
             <input className='search-bar' onChange={(e) => setName(e.target.value)} type="text" placeholder="Search character..."/>
         </form> 
-        <div>
-
+        <div className='filter-container'>
+        <button>test</button>
+        <Dropdown dataFromChild={setFilter}/>
         </div>
       </div>
     </div>
