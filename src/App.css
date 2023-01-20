@@ -271,6 +271,10 @@ a {
   color: white;
 }
 
+h2 {
+  margin-left: 0.5rem;
+}
+
 ul {
   /* display: flex; */
   list-style-type: none;
