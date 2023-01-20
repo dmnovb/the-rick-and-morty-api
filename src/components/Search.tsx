@@ -1,5 +1,7 @@
 import React, {useEffect, useState } from 'react'
 import {CSSTransition} from 'react-transition-group'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import Dropdown from './Dropdown'
 
 
@@ -31,7 +33,9 @@ const Search = (props:any) => {
             <input className='search-bar' onChange={(e) => setName(e.target.value)} type="text" placeholder="Search character..."/>
         </form> 
         <div className='filter-container'>
-        <button>test</button>
+        <button>
+          test
+        </button>
         <Dropdown dataFromChild={setFilter}/>
         </div>
       </div>

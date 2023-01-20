@@ -1,4 +1,6 @@
 import {useEffect, useState, useRef} from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { CSSTransition } from 'react-transition-group';
 
 const DropdownMenu = (props:any) => {
@@ -79,6 +81,7 @@ const DropdownMenu = (props:any) => {
             onEnter={calcHeight}>
             <div className="menu">
               <DropdownItem goToMenu="main">
+              <FontAwesomeIcon icon={faArrowLeft}></FontAwesomeIcon>
                 <h2>Back</h2>
               </DropdownItem>
               <DropdownItem >Alive</DropdownItem>
@@ -94,6 +97,7 @@ const DropdownMenu = (props:any) => {
             onEnter={calcHeight}>
             <div className="menu">
               <DropdownItem goToMenu="main">
+              <FontAwesomeIcon icon={faArrowLeft}></FontAwesomeIcon>
                 <h2>Back</h2>
               </DropdownItem>
               <DropdownItem>Male</DropdownItem>
@@ -110,6 +114,7 @@ const DropdownMenu = (props:any) => {
             onEnter={calcHeight}>
             <div className="menu">
               <DropdownItem goToMenu="main">
+              <FontAwesomeIcon icon={faArrowLeft}></FontAwesomeIcon>
                 <h2>Back</h2>
               </DropdownItem>
               <DropdownItem>Human</DropdownItem>
