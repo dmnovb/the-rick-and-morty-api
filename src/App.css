@@ -26,6 +26,7 @@ body {
   justify-content: center;
   align-items: center;
   color: white;
+  transition: ease-in-out .2s;
 
 }
 
@@ -71,6 +72,7 @@ body {
   border-radius: 15px 0px 0px 15px;
   height: 225px;
   user-select: none;
+  
 }
 
 .last-known,
@@ -154,8 +156,14 @@ body {
 .status,
 .species,
 .gender {
-  margin: 1rem;
+  margin: 0.5rem;
 
+}
+
+.status-hidden,
+.gender-hidden,
+.species-hidden {
+  margin: 0.5rem;
 }
 
 .status > span {
@@ -176,6 +184,7 @@ body {
 }
 .gender > span {
   transition: ease-out 0.2s;
+  width: 150px;
   border-radius: 16px;
   display: flex;
   background: #3c3e44;
@@ -184,17 +193,55 @@ body {
 }
 
 .status > ul {
-  display: none;
   background: #323741;
   
 }
 .species > ul {
-  display: none;
   background: #323741;
 }
 .gender > ul {
-  display: none;
   background: #323741;
+}
+
+.species-hidden > span {
+  transition: ease-out 0.2s;
+  width: 150px;
+  border-radius: 16px;
+  display: flex;
+  background: #3c3e44;
+  padding: 1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+.gender-hidden > span {
+  transition: ease-out 0.2s;
+  width: 150px;
+  border-radius: 16px;
+  display: flex;
+  background: #3c3e44;
+  padding: 1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+.status-hidden > span {
+  transition: ease-out 0.2s;
+  width: 150px;
+  border-radius: 16px;
+  display: flex;
+  background: #3c3e44;
+  padding: 1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.species-hidden > ul {
+  display: none;
+}
+.status-hidden > ul {
+  display: none;
+}
+.gender-hidden > ul {
+  display: none;
 }
 
 li {
