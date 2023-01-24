@@ -7,21 +7,23 @@ import {AiFillCaretDown} from 'react-icons/ai'
 const Search = (props:any) => {
 
     const [name, setName] = useState('')
-    const [status, setStatus] = useState('Alive')
-    const [species, setSpecies] = useState('Human')
-    const [gender, setGender] = useState('Male')
-    const [showStatusDropdown, setStatusDropdown] = useState(false);
-    const [showSpeciesDropdown, setSpeciesDropdown] = useState(false);
-    const [showGDropdown, setGenderDropdown] = useState(false);
+    const [status, setStatus] = useState('Status')
+    const [species, setSpecies] = useState('Species')
+    const [gender, setGender] = useState('Gender')
+    const [showStatusDropdown, setStatusDropdown] = useState(true);
+    const [showSpeciesDropdown, setSpeciesDropdown] = useState(true);
+    const [showGDropdown, setGenderDropdown] = useState(true);
     
 
     
     var char_url = `https://rickandmortyapi.com/api/character/?name=${name}&status=${status}&species=${species}&gender=${gender}`
 
     const getName = async (e:any) => {
-        e.preventDefault();
-        const characterQuery = await fetch(char_url).then(res => res.json())
-        props.onDataFromChild(characterQuery)
+        if(status != 'Status' && species != 'Species' && gender != 'Gender'){
+          e.preventDefault();
+          const characterQuery = await fetch(char_url).then(res => res.json())
+          props.onDataFromChild(characterQuery)
+        }
     }
   
     const statusDropdown = () => {
@@ -34,6 +36,14 @@ const Search = (props:any) => {
       setGenderDropdown(!showGDropdown)
     }
 
+    console.log(status)
+    console.log(gender)
+    console.log(species)
+
+  const speciesArray = ['Human','Humanoid','Animal','Alien','Robot','Mythological Creature','Poopybutthole','Unknown']
+  const genderArray = ['Male', 'Female', 'Unknown']
+  const statusArray = ['Alive', 'Dead', 'Unknown']
+
   return (
     <div>
       <div className='search-container'>
@@ -45,30 +55,25 @@ const Search = (props:any) => {
             <div className={showStatusDropdown === false ? 'status' : 'status-hidden'}>
               <span onClick={statusDropdown}>{status} <AiFillCaretDown className='caret'/></span>
               <ul>
-                <li>Dead</li>
-                <li>Alive</li>
-                <li>Unknown</li>
+              {statusArray.map((status, idx) => (
+                  <li key={idx} onClick={() => setStatus(status)}>{status}</li>
+                ))}
               </ul>
             </div>
             <div className={showSpeciesDropdown === false ? 'species' : 'species-hidden'}>
               <span onClick={speciesDropdown}>{species} <AiFillCaretDown/></span>
               <ul>
-                <li>Human</li>
-                <li>Humanoid</li>
-                <li>Animal</li>
-                <li>Alien</li>
-                <li>Robot</li>
-                <li>Poopybutthole</li>
-                <li>Mythological Creature</li>
-                <li>Unknown</li>
+                {speciesArray.map((species, idx) => (
+                  <li key={idx} onClick={() => setSpecies(species)}>{species}</li>
+                ))}
               </ul>
             </div>
             <div className={showGDropdown === false ? 'gender' : 'gender-hidden'}>
               <span onClick={genderDropdown}>{gender} <AiFillCaretDown/></span>
               <ul>
-                <li>Dead</li>
-                <li>Alive</li>
-                <li>Unknown</li>
+              {genderArray.map((gender, idx) => (
+                  <li key={idx} onClick={() =>setGender(gender)}>{gender}</li>
+                ))}
               </ul>
             </div>
           </div>
