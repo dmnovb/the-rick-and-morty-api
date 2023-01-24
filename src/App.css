@@ -155,42 +155,60 @@ body {
 .species,
 .gender {
   margin: 1rem;
+
 }
 
 .status > span {
   transition: ease-out 0.2s;
   background: #3c3e44;
+  border-radius: 16px;
   display: flex;
   padding: 1rem;
+  cursor: pointer;
 }
 .species > span {
+  transition: ease-out 0.2s;
+  border-radius: 16px;
   display: flex;
   background: #3c3e44;
   padding: 1rem;
+  cursor: pointer;
 }
 .gender > span {
+  transition: ease-out 0.2s;
+  border-radius: 16px;
   display: flex;
   background: #3c3e44;
   padding: 1rem;
+  cursor: pointer;
 }
 
 .status > ul {
+  display: none;
   background: #323741;
+  
 }
 .species > ul {
+  display: none;
   background: #323741;
 }
 .gender > ul {
+  display: none;
   background: #323741;
 }
 
+li {
+  cursor: pointer;
+}
 
 ul {
   list-style: none;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  text-align: start;
+  padding: 1rem;
+  border-radius: 16px;
+
 }
 
 a {

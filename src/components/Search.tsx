@@ -7,9 +7,11 @@ import {AiFillCaretDown} from 'react-icons/ai'
 const Search = (props:any) => {
 
     const [name, setName] = useState('')
-    const [status, setStatus] = useState('Dead')
-    const [species, setSpecies] = useState('Alien')
+    const [status, setStatus] = useState('Alive')
+    const [species, setSpecies] = useState('Human')
     const [gender, setGender] = useState('Male')
+    const [showDropdown, setShowDropdown] = useState(false);
+
     
     var char_url = `https://rickandmortyapi.com/api/character/?name=${name}&status=${status}&species=${species}&gender=${gender}`
 
@@ -29,7 +31,7 @@ const Search = (props:any) => {
         <div className='filter-container'>
           <div className='dropdown'>
             <div className='status'>
-              <span>{status} <AiFillCaretDown/></span>
+              <span>{status} <AiFillCaretDown className='caret'/></span>
               <ul>
                 <li>Dead</li>
                 <li>Alive</li>
