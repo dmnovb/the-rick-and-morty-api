@@ -12,7 +12,7 @@ const Search = (props:any) => {
     const [gender, setGender] = useState('Gender')
     const [showStatusDropdown, setStatusDropdown] = useState(true);
     const [showSpeciesDropdown, setSpeciesDropdown] = useState(true);
-    const [showGDropdown, setGenderDropdown] = useState(true);
+    const [showGenderDropdown, setGenderDropdown] = useState(true);
     
 
     
@@ -26,18 +26,30 @@ const Search = (props:any) => {
         }
     }
   
-    const statusDropdown = () => {
+    const statusDropdown = (a:any) => {
       setStatusDropdown(!showStatusDropdown)
     }
-    const speciesDropdown = () => {
+    const speciesDropdown = (a:any) => {
+      
       setSpeciesDropdown(!showSpeciesDropdown)
     }
-    const genderDropdown = () => {
-      setGenderDropdown(!showGDropdown)
+    const genderDropdown = (a:any) => {
+      setGenderDropdown(!showGenderDropdown)
     }
 
-    console.log(status)
-    console.log(gender)
+    const closeStatusDropdown = (a:string) => {
+      setStatus(a)
+      setStatusDropdown(!showStatusDropdown)
+    }
+    const closeSpeciesDropdown = (a:string) => {
+      setSpecies(a)
+      setSpeciesDropdown(!showSpeciesDropdown)
+    }
+    const closeGenderDropdown = (a:string) => {
+      setGender(a)
+      setGenderDropdown(!showGenderDropdown)
+    }
+
     console.log(species)
 
   const speciesArray = ['Human','Humanoid','Animal','Alien','Robot','Mythological Creature','Poopybutthole','Unknown']
@@ -53,26 +65,29 @@ const Search = (props:any) => {
         <div className='filter-container'>
           <div className='dropdown'>
             <div className={showStatusDropdown === false ? 'status' : 'status-hidden'}>
-              <span onClick={statusDropdown}>{status} <AiFillCaretDown className='caret'/></span>
+              <h2>Status</h2>
+              <span onClick={statusDropdown}> {status} <AiFillCaretDown className='caret'/></span>
               <ul>
               {statusArray.map((status, idx) => (
-                  <li key={idx} onClick={() => setStatus(status)}>{status}</li>
+                  <li key={idx} onClick={() => closeStatusDropdown(status)}>{status}</li>
                 ))}
               </ul>
             </div>
             <div className={showSpeciesDropdown === false ? 'species' : 'species-hidden'}>
+              <h2>Species</h2>
               <span onClick={speciesDropdown}>{species} <AiFillCaretDown/></span>
               <ul>
                 {speciesArray.map((species, idx) => (
-                  <li key={idx} onClick={() => setSpecies(species)}>{species}</li>
+                  <li key={idx} onClick={() => closeSpeciesDropdown(species)}>{species}</li>
                 ))}
               </ul>
             </div>
-            <div className={showGDropdown === false ? 'gender' : 'gender-hidden'}>
+            <div className={showGenderDropdown === false ? 'gender' : 'gender-hidden'}>
+              <h2>Gender</h2>
               <span onClick={genderDropdown}>{gender} <AiFillCaretDown/></span>
               <ul>
               {genderArray.map((gender, idx) => (
-                  <li key={idx} onClick={() =>setGender(gender)}>{gender}</li>
+                  <li key={idx} onClick={() => closeGenderDropdown(gender)}>{gender}</li>
                 ))}
               </ul>
             </div>
