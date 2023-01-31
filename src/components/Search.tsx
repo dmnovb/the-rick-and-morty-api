@@ -18,14 +18,16 @@ const Search = (props:any) => {
     
     var char_url = `https://rickandmortyapi.com/api/character/?name=${name}&status=${status}&species=${species}&gender=${gender}`
 
-    const getName = async (e:any) => {
-        if(status != 'Status' && species != 'Species' && gender != 'Gender'){
-          e.preventDefault();
-          const characterQuery = await fetch(char_url).then(res => res.json())
-          props.onDataFromChild(characterQuery)
-        }
+    useEffect(() => {}, [])
+    async function getName(e:any) {
+      if(status != 'Status' && species != 'Species' && gender != 'Gender'){
+        e.preventDefault();
+        const characterQuery = await fetch(char_url).then(res => res.json())
+        props.onDataFromChild(characterQuery)
+      }
+      getName()
     }
-  
+
     const statusDropdown = (a:any) => {
       setStatusDropdown(!showStatusDropdown)
     }
@@ -57,11 +59,14 @@ const Search = (props:any) => {
   const statusArray = ['Alive', 'Dead', 'Unknown']
 
   return (
-    <div>
+    <div className='container'>
       <div className='search-container'>
-        <form  onSubmit={getName}>
+        <div className='form'>
+        <form onSubmit={getName}>
             <input className='search-bar' onChange={(e) => setName(e.target.value)} type="text" placeholder="Search character..."/>
-        </form> 
+        </form>
+        </div>
+        <button onClick={(e) => getName(e)}>Submit</button> 
         <div className='filter-container'>
           <div className='dropdown'>
             <div className={showStatusDropdown === false ? 'status' : 'status-hidden'}>
@@ -69,7 +74,7 @@ const Search = (props:any) => {
               <span onClick={statusDropdown}> {status} <AiFillCaretDown className='caret'/></span>
               <ul>
               {statusArray.map((status, idx) => (
-                  <li key={idx} onClick={() => closeStatusDropdown(status)}>{status}</li>
+                <li key={idx} onClick={() => closeStatusDropdown(status)}>{status}</li>
                 ))}
               </ul>
             </div>
@@ -79,7 +84,7 @@ const Search = (props:any) => {
               <ul>
                 {speciesArray.map((species, idx) => (
                   <li key={idx} onClick={() => closeSpeciesDropdown(species)}>{species}</li>
-                ))}
+                  ))}
               </ul>
             </div>
             <div className={showGenderDropdown === false ? 'gender' : 'gender-hidden'}>
@@ -87,7 +92,7 @@ const Search = (props:any) => {
               <span onClick={genderDropdown}>{gender} <AiFillCaretDown/></span>
               <ul>
               {genderArray.map((gender, idx) => (
-                  <li key={idx} onClick={() => closeGenderDropdown(gender)}>{gender}</li>
+                <li key={idx} onClick={() => closeGenderDropdown(gender)}>{gender}</li>
                 ))}
               </ul>
             </div>

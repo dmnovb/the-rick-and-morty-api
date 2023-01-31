@@ -123,7 +123,10 @@ body {
 }
 
 .search-container {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  align-items: center;
   margin-bottom: 6rem;
 }
 
@@ -267,6 +270,22 @@ h2 {
   margin-left: 0.5rem;
 }
 
+button {
+  margin-top: 1rem;
+  width: 30%;
+  background: #3c3e44;
+  border-radius: 15px;
+  border: none;
+  padding: 1rem;
+  color: white;
+  font-family: 'Poppins';
+}
+
+button:hover {
+  background: #585c65;
+  transition: ease-in-out .2s;
+}
+
 a:visited {
   color: white;
   text-decoration: none;
@@ -308,6 +327,8 @@ a:hover {
   transform: translateY(-0.350rem);
   
 }
+
+
 
 @media (max-width: 1800px) {
   .chars {
