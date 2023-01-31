@@ -25,7 +25,7 @@ const Search = (props:any) => {
         const characterQuery = await fetch(char_url).then(res => res.json())
         props.onDataFromChild(characterQuery)
       }
-      getName()
+      getName(e)
     }
 
     const statusDropdown = (a:any) => {
